@@ -34,8 +34,9 @@ useEffect(()=>{
            <Box sx={{pt:6,backgroundImage:`url(${BaseImageUrl}${data?.backdrop_path})`,
             backgroundRepeat:'no-repeat',
             backgroundPosition:'50% 50%',
-            backgroundSize:'100% 100%',
+            backgroundSize:'cover',
             minHeight:'100vh',
+            
             minWidth:'100%'}}>
             {isLoading? 
             <Box >
