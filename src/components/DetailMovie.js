@@ -30,7 +30,7 @@ const [getDetailMovie,{isLoading,error,data}] = useGetDetailMovieMutation()
 useEffect(()=>{
     getDetailMovie(params?.data)
 },[params])
-console.log("this ",data)
+
 useEffect(()=>{
     const fetchData = async()=>{
        try {
@@ -44,7 +44,7 @@ useEffect(()=>{
            const mov= dataMovie.videos.results;
            const movie = mov.filter((data)=>data.type === "Trailer")[0];
            const test = ["hello"]
-           console.log(mov.length)
+         
            if(mov.length <= 0){
             setTrailer(test)
            
