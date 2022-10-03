@@ -1,8 +1,8 @@
-import { BorderBottom } from '@mui/icons-material'
+
 import { Box, Button, Input } from '@mui/material'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useSearchMovieMutation } from '../Features/MoviApi'
+
 
 export default function SearchBar() {
     const [search,setSearch] = useState("")
