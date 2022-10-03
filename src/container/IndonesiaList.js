@@ -1,9 +1,6 @@
 import MovieCard from '../components/MovieCard';
 import {Box} from '@mui/system';
 import { useState,useEffect, useRef, useCallback } from 'react';
-
-import axios from 'axios';
-import { async } from '@firebase/util';
 import Loading from '../components/Loading';
 import { useIndoMovieMutation } from '../Features/MoviApi';
 import ErrorPages from './ErrorPages';
