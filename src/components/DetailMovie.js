@@ -102,13 +102,13 @@ useEffect(()=>{
                 
                    
                  }}>
-                 {data?.videos?.results.map((data)=>{
+                 {data?.videos?.results.map((data,i)=>{
                     return(
                          <CardMedia 
                              sx={{width:"auto",height:"max-content",
                             p:1}}>
                                 <div style={{height:'auto',width:'auto'}}> 
-                                    <iframe key={data.id} frameBorder= "0" 
+                                    <iframe key={i} frameBorder= "0" 
                                         className="movieTrail" 
                                         src={YT+data.key} allowFullScreen>
                                         </iframe>
