@@ -10,6 +10,7 @@ import { Button, TableFooter } from '@mui/material';
 import {useNavigate} from 'react-router-dom'
 import {auth} from '../Config/Firebase.js'
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Box } from '@mui/system';
 
 function createData(name,Free, Bronze, Silver, Gold, Platinum) {
   return { name,Free, Bronze, Silver, Gold, Platinum};
@@ -29,58 +30,61 @@ export default function Price() {
   let navigate = useNavigate();
   const onSubs=(type)=>{
     if(user){
-
       navigate(`/subs/${type}`);
     }else{
       alert('Anda harus login terlebih dahulu')
       navigate('/login')
     }
   }
+
+  document.querySelectorAll('MuiTableCell-root').forEach((data)=>{
+      data.classList.add('table-text')
+  })
   return (
-    <TableContainer component={Paper} sx={{minHeight:'92vh'}}>
-      <Table sx={{ minWidth: 300,marginTop:"100px" }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Type</TableCell>
-            <TableCell align="center">Free</TableCell>
-            <TableCell align="center">Bronze</TableCell>
-            <TableCell align="center">Silver</TableCell>
-            <TableCell align="center">Gold</TableCell>
-            <TableCell align="center">Platinum</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="center">{row.Free}</TableCell>
-              <TableCell align="center">{row.Bronze}</TableCell>
-              <TableCell align="center">{row.Silver}</TableCell>
-              <TableCell align="center">{row.Gold}</TableCell>
-              <TableCell align="center">{row.Platinum}</TableCell>
-            
-    
-            </TableRow>
-            
-          ))}
-        </TableBody>
-        <TableFooter>
-        <TableRow>
-            <TableCell></TableCell>
-            <TableCell ></TableCell>
-            <TableCell align="center"><Button onClick={()=>{onSubs('Bronze')}}>Beli</Button></TableCell>
-            <TableCell align="center"><Button onClick={()=>{onSubs('Silver')}}>Beli</Button></TableCell>
-            <TableCell align="center"><Button onClick={()=>{onSubs('Gold')}}>Beli</Button></TableCell>
-            <TableCell align="center"><Button onClick={()=>{onSubs('Platinum')}}>Beli</Button></TableCell>
-          </TableRow>
-        </TableFooter>
-      </Table>
-    
-    </TableContainer>
+    <Box sx={{minHeight:'100vh',paddingTop:'100px',backgroundColor:'black'}}>
+        <TableContainer component={Paper} sx={{minHeight:'max-content',paddingTop:'100px',backgroundColor:'white'}}>
+          <Table sx={{}} aria-label="simple table">
+            <TableHead >
+              <TableRow >
+                <TableCell >Type</TableCell>
+                <TableCell align="center">Free</TableCell>
+                <TableCell align="center">Bronze</TableCell>
+                <TableCell align="center">Silver</TableCell>
+                <TableCell align="center">Gold</TableCell>
+                <TableCell align="center">Platinum</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="center">{row.Free}</TableCell>
+                  <TableCell align="center">{row.Bronze}</TableCell>
+                  <TableCell align="center">{row.Silver}</TableCell>
+                  <TableCell align="center">{row.Gold}</TableCell>
+                  <TableCell align="center">{row.Platinum}</TableCell>
+                </TableRow>
+                
+              ))}
+            </TableBody>
+            <TableFooter>
+            <TableRow>
+                <TableCell></TableCell>
+                <TableCell ></TableCell>
+                <TableCell align="center"><Button onClick={()=>{onSubs('Bronze')}}>Beli</Button></TableCell>
+                <TableCell align="center"><Button onClick={()=>{onSubs('Silver')}}>Beli</Button></TableCell>
+                <TableCell align="center"><Button onClick={()=>{onSubs('Gold')}}>Beli</Button></TableCell>
+                <TableCell align="center"><Button onClick={()=>{onSubs('Platinum')}}>Beli</Button></TableCell>
+              </TableRow>
+            </TableFooter>
+          </Table>
+        
+        </TableContainer>
+    </Box>
   );
 }

@@ -31,15 +31,23 @@ const Register = () => {
     };
 
     return (
-        <Container component="main" maxWidth="xs" sx={{minHeight:'82vh'}}>
-            <Box
-                sx={{
-                    mt: 10,
+       <Box sx={{backgroundColor:'black',minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center'}}>
+        <Box  sx={{minHeight:'max-content',
+                backgroundColor:'white',
+                width:'80%',
+                zIndex:1,
+                borderRadius:'12px',
+                p:1,
+               
+                }}>
+            <Box  sx={{
+                    p:1,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                }}
-            >
+                    
+                }}>
+            
                 <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                     <LockOutlinedIcon />
                 </Avatar>
@@ -88,7 +96,8 @@ const Register = () => {
                     </Grid>
                 </Box>
             </Box>
-        </Container>
+        </Box>
+      </Box>
     );
 }
 

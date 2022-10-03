@@ -15,34 +15,48 @@ import Login from './container/Login.js'
 import Register from './container/Register';
 import UserLogin from './Config/UserLogin'
 import Notfound from './container/Notfound';
+import {configureStore} from '@reduxjs/toolkit'
+import { Provider } from 'react-redux';
+import { MovieApi } from './Features/MoviApi';
+import SearchMovie from './container/SearchMovie';
 
 
+
+const store = configureStore({
+  reducer:{
+    [MovieApi.reducerPath]:MovieApi.reducer,
+  },
+  middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(MovieApi.middleware),
+})
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <BrowserRouter>
     <Routes>
 
     <Route path="/" element={
       <App />
-      
     }>
-      <Route path="/" element={<Box><MovieList /></Box>} />
-      <Route path="/indonesia" element={<Box><Indo/></Box>}/>
+      <Route path="/" element={<MovieList />} />
+      <Route path="/indonesia" element={<Indo/>}/>
       <Route path="/price" element={<Box><Price /></Box>}/>
       <Route path='/subs/:type' element={<Subscribe />}/>
       <Route path="/about" element={<Box><About/></Box>}/>
-      <Route path='/movie/:name' element ={<Box><MovieList /></Box>}/>
+      {/* <Route path='/movie/:name' element ={<Box><MovieList /></Box>}/> */}
+      <Route path='/search/:movie' element = {<SearchMovie/>} />
       <Route path='/detail/:data' element={<DetailMovie />}/>
       <Route path='/login' element={<UserLogin><Login/></UserLogin>}/>
       <Route path='/register' element={<UserLogin><Register/></UserLogin>}/>
       <Route path='/*' element={<Notfound />}/>
+
     </Route>
     </Routes>
     </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

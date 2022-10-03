@@ -46,13 +46,24 @@ const Login = () => {
     };
 
     return (
-        <Container component="main" maxWidth="xs" sx={{minHeight:'82vh'}}>
+        <Box sx={{backgroundColor:'black',minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center'}}>
+
+       
+        <Box sx={{minHeight:'max-content',
+            backgroundColor:'white',
+            width:'80%',
+            zIndex:1,
+            borderRadius:'12px',
+            p:1,
+           
+            }}>
             <Box
                 sx={{
-                    mt: 10,
+                    p:1,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    
                 }}
             >
                 <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -61,9 +72,9 @@ const Login = () => {
                 <Typography component="h1" variant="h5">
                     Sign in
                 </Typography>
-            <Box sx={{display:'flex',minWidth:'400px',mt:1,justifyContent:'space-between'}}>
-                    <Button variant='contained' sx={{backgroundColor:'blue'}} onClick={signWithGoogle}>Sign With Google</Button>
-                    <Button variant='contained' sx={{backgroundColor:'black'}} onClick={signWithGit}>Sign With Github</Button>
+                <Box sx={{display:'flex',width:'80%',mt:1,justifyContent:'space-around',flexDirection:'row',flexWrap:'wrap'}}>
+                    <Button variant='contained' sx={{backgroundColor:'blue',m:1,width:'200px'}} onClick={signWithGoogle}>Sign With Google</Button>
+                    <Button variant='contained' sx={{backgroundColor:'black',m:1,width:'200px'}} onClick={signWithGit}>Sign With Github</Button>
                 </Box>
                 <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                     <TextField
@@ -104,7 +115,8 @@ const Login = () => {
                     </Grid>
                 </Box>
             </Box>
-        </Container>
+        </Box>
+      </Box>
     );
 }
 
