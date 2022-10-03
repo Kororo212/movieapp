@@ -11,7 +11,7 @@ const Subscribe =()=>{
     
   
     return (
-        <Box className='subs' sx={{mt:10, display:"flex",minHeight:'80vh'}}>
+        <Box className='subs' sx={{backgroundColor:'black',mt:10, display:"flex",minHeight:'80vh',color:'white'}}>
             <h1>Thank you for subscribe {user.email}</h1>
             <h2>type : {params?.type}</h2>
         </Box>
