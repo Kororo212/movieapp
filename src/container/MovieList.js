@@ -8,8 +8,7 @@ import Loading from '../components/Loading';
 import SearchBar from '../components/SearchBar';
 import TopList from '../components/TopList';
 import { useGetAllMoviesMutation } from '../Features/MoviApi';
-import { DataArraySharp } from '@mui/icons-material';
-import { async } from '@firebase/util';
+
 import ErrorPages from './ErrorPages';
 
 
