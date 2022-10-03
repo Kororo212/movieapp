@@ -14,15 +14,10 @@ import Loading from "./Loading";
 const DetailMovie = ()=>{
 let params = useParams();
 const YT = 'https://www.youtube.com/embed/';
-const URL = "https://api.themoviedb.org/3/movie/";
-const KEY = `?api_key=${process.env.REACT_APP_TMDB_KEY}`;
 const BaseImageUrl = "https://image.tmdb.org/t/p/original";
-const Detail = "&append_to_response=videos";
-const [movie,setMovie] = useState([]);
-const [genres,setGenres] = useState([]);
-const [loading,setLoading] = useState(true);
-const [trailer,setTrailer] = useState([]);
-const [backdrop,setBackdrop] = useState();
+
+
+
 
 
 const [getDetailMovie,{isLoading,error,data}] = useGetDetailMovieMutation()
@@ -31,49 +26,12 @@ useEffect(()=>{
     getDetailMovie(params?.data)
 },[params])
 
-useEffect(()=>{
-    const fetchData = async()=>{
-       try {
-        const data = await axios
-        .get(`${URL}${params?.data}${KEY}${Detail}`)
-        .then(res=>{
-            let dataMovie = res.data;
-            setMovie(dataMovie)
-            
-            setGenres(dataMovie.genres)
-           const mov= dataMovie.videos.results;
-           const movie = mov.filter((data)=>data.type === "Trailer")[0];
-           const test = ["hello"]
-         
-           if(mov.length <= 0){
-            setTrailer(test)
-           
-           }
-     
-           const trailers = YT+movie.key;
-           setTrailer(trailers)
-           if(dataMovie.backdrop_path === null){
-            setBackdrop(dataMovie.poster_path)
-        
-           }else{
-            setBackdrop(dataMovie.backdrop_path)
-           }
-         
-            
-        });
-        setLoading(false);
-       }catch(e){
-        console.log(e)
-       }
-    }
-    fetchData();
 
-},[params])
 
 
         return (
    
-           <Box sx={{pt:6,backgroundImage:`url(${BaseImageUrl}${backdrop})`,
+           <Box sx={{pt:6,backgroundImage:`url(${BaseImageUrl}${data?.backdrop})`,
             backgroundRepeat:'no-repeat',
             backgroundPosition:'50% 50%',
             backgroundSize:'100% 100%',
