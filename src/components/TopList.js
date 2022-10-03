@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { useNavigate} from 'react-router-dom';
 import { Paper, Button } from '@mui/material'
 import Carousel from 'react-material-ui-carousel'
 import { useTrendingMovieDayQuery } from '../Features/MoviApi';
@@ -48,16 +47,3 @@ const BaseImageUrl = "https://image.tmdb.org/t/p/original";
   );
 }
 
-function Item(props)
-{
-    return (
-        <Paper>
-            <h2>{props.item.name}</h2>
-            <p>{props.item.description}</p>
-
-            <Button className="CheckButton">
-                Check it out!
-            </Button>
-        </Paper>
-    )
-}
