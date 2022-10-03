@@ -21,8 +21,7 @@ const Gauth = new GoogleAuthProvider()
 const GitAuth = new GithubAuthProvider()
 export const signWithGoogle =()=>{
   signInWithPopup(auth,Gauth)
-  .then((res)=>console.log(res))
-  .catch((err)=>{console.log(err)})
+  
 
 }
 
