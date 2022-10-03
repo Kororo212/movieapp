@@ -2,7 +2,7 @@ import React from "react";
 import { Box } from "@mui/system";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuthState } from 'react-firebase-hooks/auth'; //npm i react-firebase-hooks
 import { auth } from '../Config/Firebase'; 
 import { signOut } from "firebase/auth";
