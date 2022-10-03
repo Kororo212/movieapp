@@ -31,7 +31,7 @@ useEffect(()=>{
 
         return (
    
-           <Box sx={{pt:6,backgroundImage:`url(${BaseImageUrl}${data?.backdrop})`,
+           <Box sx={{pt:6,backgroundImage:`url(${BaseImageUrl}${data?.backdrop_path})`,
             backgroundRepeat:'no-repeat',
             backgroundPosition:'50% 50%',
             backgroundSize:'100% 100%',
