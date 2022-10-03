@@ -6,7 +6,7 @@ import { getAuth,GoogleAuthProvider,GithubAuthProvider,signInWithPopup } from "f
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey:process.env.REACT_APP_FIREBASE ,
+  apiKey:process.env.REACT_APP_FIREBASE_KEY ,
   authDomain: "movie-b62a8.firebaseapp.com",
   projectId: "movie-b62a8",
   storageBucket: "movie-b62a8.appspot.com",
