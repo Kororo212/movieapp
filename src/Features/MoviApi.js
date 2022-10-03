@@ -10,28 +10,28 @@ export const MovieApi = createApi({
     endpoints:(builder)=>({
         getAllMovies : builder.mutation({
             query:(page)=>({
-              url:`/movie/popular?api_key=844c872feee1c2892d10199ce6c7fa4d&page=${page}`
+              url:`/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&page=${page}`
              
             })
         }),
         searchMovie: builder.mutation({
             query:(data)=>({
-              url:`search/movie?api_key=844c872feee1c2892d10199ce6c7fa4d&query=${data}`,
+              url:`search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&query=${data}`,
             })
         }),
         trendingMovieDay:builder.query({
             query:()=>({
-              url: "/trending/movie/day?api_key=844c872feee1c2892d10199ce6c7fa4d"
+              url: `/trending/movie/day?api_key=${process.env.REACT_APP_TMDB_KEY}`
             })
         }),
         indoMovie:builder.mutation({
            query:(page)=>({
-            url:`discover/movie?api_key=844c872feee1c2892d10199ce6c7fa4d&with_original_language=id&page=${page}`
+            url:`discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&with_original_language=id&page=${page}`
            })
         }),
         getDetailMovie: builder.mutation({
            query:(data)=>({
-            url:`movie/${data}?api_key=844c872feee1c2892d10199ce6c7fa4d&append_to_response=videos`
+            url:`movie/${data}?api_key=${process.env.REACT_APP_TMDB_KEY}&append_to_response=videos`
            })
         })
         
