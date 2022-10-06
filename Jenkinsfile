@@ -4,7 +4,7 @@ pipeline {
     agent {
         docker {
             image 'node:lts-bullseye-slim' 
-            args '-p 3000:3000' 
+            args 'docker run -u --name react-jenkins -p 3000:3000' 
         }
     }
     stages {
