@@ -1,17 +1,16 @@
 
 
 pipeline {
-    agent {
-        docker {
-            image 'node:lts-bullseye-slim' 
-            args 'docker run -u 0 -p 3000:3000' 
-        }
-    }
+   agent none 
     stages {
-        stage('Build') { 
+        stage('Example Build') {
+            agent { 
+                docker 'node:lastest'
+                args 'docker run -u 0  --name docker-jenkins:react -p 3040:3040'
+                } 
             steps {
-                sh 'npm install' 
+                echo 'Hello, Maven'
+                sh 'npm install'
             }
         }
-    }
 }
