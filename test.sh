@@ -8,7 +8,7 @@ cp -r src/* app/src/.
 cp -r public/* app/public/.
 echo "FROM node:lastest" >> app/Dockerfile
 echo "USER root" >> app/Dockerfile
-echo "WORKIR /tempdir/" >> app/Dockerfile
+echo "WORKDIR /tempdir/" >> app/Dockerfile
 echo "RUN npm install" >> app/Dockerfile
 echo "COPY package*.json /app" >> app/Dockerfile
 echo "COPY ./ ./" >> app/Dockerfile
