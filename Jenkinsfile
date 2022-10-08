@@ -1,17 +1,15 @@
 
 
-pipeline {
-  agent {
-      docker{
-      image 'node:lastest'
-      args '-p 3000:3000'
-      }
-    }
+pipeline{
+    agent any
+    tools { nodejs :"node"}
+    
     stages{
-         stage('Build'){
+        stage('Build'){
             steps{
-               sh 'npm install'
-               }
-           }
-      }
+                bat "npm install"
+            }
+        }
+    }
+    
 }
